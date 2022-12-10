@@ -1,4 +1,7 @@
-@import "./component/Card.scss";
-@import "./ui/SearchInput.scss";
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
 
-@import "./page/Home.scss";
+@import "./component/Card";
+@import "./ui/SearchInput";
+
+@import "./page/Home";
