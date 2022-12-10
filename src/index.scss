@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Aperco";
+  src: url("./assets/fonts/Apercu\ Pro\ Regular.otf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Aperco";
+}
+
+html,
+body {
+  background: #fafafa;
+}
+
+.container {
+  font-size: 20px;
+  padding: 2rem 4rem;
+
+  @media screen and (max-width: 768px) {
+    padding: unset;
+  }
+}

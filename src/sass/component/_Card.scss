@@ -1,0 +1,44 @@
+.card__container {
+  width: 354px;
+  cursor: pointer;
+
+  .card__contents {
+    display: grid;
+    gap: 0.5rem;
+    img {
+      width: 354px;
+      height: 236px;
+      border-radius: 12px;
+    }
+
+    h2 {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 30px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .brand-et-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.3rem;
+
+      .brand {
+        border: 1px solid #ccc;
+        padding: 0.6rem;
+        border-radius: 12px;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #999faa;
+      }
+    }
+  }
+}
