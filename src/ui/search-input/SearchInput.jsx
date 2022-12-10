@@ -1,6 +1,6 @@
 import React from "react";
 
-const SearchInput = ({ value, onChange, onClick }) => {
+const SearchInput = ({ value, onChange, onClick, error }) => {
   return (
     <div className="search__container">
       <div className="search__container--search">
@@ -9,6 +9,9 @@ const SearchInput = ({ value, onChange, onClick }) => {
           placeholder="Search"
           onChange={onChange}
           value={value}
+          style={{
+            border: error ? "1px solid red" : "1px solid #ccc",
+          }}
         />
         <div className="search__container--action">
           <button onClick={onClick}>Search</button>

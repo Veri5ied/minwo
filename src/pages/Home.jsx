@@ -6,14 +6,36 @@ const Home = () => {
   const { getProducts, products } = useContext(GeneralContext);
 
   const [search, setSearch] = useState("");
+  const [error, setError] = useState(false);
+  const [results, setResults] = useState([]);
 
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
 
   const handleSearchClick = async () => {
-    await getProducts({ params: search });
-    console.log(products);
+    if (search === "") {
+      setError(true);
+      return;
+    } else {
+      await getProducts({ params: search });
+      setError(false);
+    }
+  };
+  //map through the product list and get all categories while removing duplicates, then use those categories to filter the products by category and display them in the UI
+  const categories = [
+    ...new Set(
+      products?.products?.map((product) => {
+        return product.category;
+      })
+    ),
+  ];
+
+  const handleCategoryClick = (category) => {
+    const filteredProducts = products?.products?.filter(
+      (product) => product.category === category
+    );
+    setResults(filteredProducts);
   };
 
   return (
@@ -22,7 +44,22 @@ const Home = () => {
         value={search}
         onChange={handleSearch}
         onClick={handleSearchClick}
+        error={error}
       />
+      <div className="filter__container">
+        {categories.length >= 1 && <p>Filter by Category</p>}
+        <div className="product--categories">
+          {categories?.map((category) => (
+            <button
+              key={category}
+              onClick={() => handleCategoryClick(category)}
+              className="product--categories--button"
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
       <div className="search__results">
         <p>
           Search Result:{" "}
@@ -39,6 +76,7 @@ const Home = () => {
                 description={description}
                 brand={brand}
                 price={price}
+                key={title}
               />
             )
           )}

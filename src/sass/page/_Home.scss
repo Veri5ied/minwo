@@ -5,7 +5,6 @@
   place-items: center;
   row-gap: 2rem;
 
-  /* Make it responsive on mobile and table */
   @media screen and (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -15,6 +14,31 @@
   }
 }
 
+.filter__container {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 0.875rem;
+  display: grid;
+  gap: 0.5rem;
+  .product--categories {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+    button {
+      border: 1px solid #ccc;
+      padding: 0.6rem;
+      border-radius: 12px;
+      flex-wrap: wrap;
+      cursor: pointer;
+    }
+  }
+}
+
 .search__results {
   margin-top: 1rem;
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
 }
