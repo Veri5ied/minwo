@@ -1,5 +1,3 @@
-/* Test for home, get only search button from all buttons in home, make sure api call is made when search button is click using the input texts and return response */
-
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Home from "../Home";
