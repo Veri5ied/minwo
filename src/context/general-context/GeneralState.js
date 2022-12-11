@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import GeneralContext from "./GeneralContext";
 import GeneralReducer from "./GeneralReducer";
-import { GET_PRODUCTS, GET_BY_CATEGORY } from "../types";
+import { GET_PRODUCTS } from "../types";
 import { BASE_URI } from "../../utils/baseUri";
 import axios from "axios";
 
@@ -20,20 +20,11 @@ const GeneralState = ({ children }) => {
     });
   };
 
-  const getByCategory = async ({ params }) => {
-    const res = await axios.get(`${BASE_URI}/products/category/${params}`);
-    dispatch({
-      type: GET_BY_CATEGORY,
-      payload: res.data,
-    });
-  };
-
   return (
     <GeneralContext.Provider
       value={{
         products: state.products,
         getProducts,
-        getByCategory,
       }}
     >
       {children}

@@ -9,8 +9,6 @@ const Home = () => {
   const [error, setError] = useState(false);
   const [filterItems, setFilterItems] = useState();
 
-  const [searchString, setSearchString] = useState("");
-
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
@@ -25,7 +23,7 @@ const Home = () => {
     }
   };
   //map through the product list and get all categories while removing duplicates,
-  //then use those categories to filter the products by category and display them in the UI (Because we don't really know all the categories that will be needed per product or for all products)
+  //then use those categories to filter the products by category and display them on the UI (Because we don't really know all the categories that will be needed per product or for all products)
   //so best we get the categories from returned response and utilize them to filter the products instead of making a static list of categories
   const categories = [
     ...new Set(
