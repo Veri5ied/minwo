@@ -29,8 +29,9 @@
       height: 74px;
       padding-left: 1rem;
       border: none;
+      outline: none;
       @include inSearchFonts;
-      color: #000000;
+      color: $secondary-color;
 
       @media screen and (max-width: 768px) {
         width: 100%;
